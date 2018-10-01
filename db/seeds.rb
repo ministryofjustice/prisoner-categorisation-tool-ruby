@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Case.create!(
+  [
+    { name: 'John Smith', nomis_id: 'AA111', due_date: 2.days.from_now, status: 'initial' },
+    { name: 'Rob Jones', nomis_id: 'AB123', due_date: 3.days.from_now, status: 'recategorisation' },
+    { name: 'Ben Williams', nomis_id: 'AC991', due_date: 1.days.from_now, status: 'referred' },
+    { name: 'Alex Smtih', nomis_id: 'AB222', due_date: 4.days.from_now, status: 'advised' },
+    { name: 'James Hetfield', nomis_id: 'AB432', due_date: 1.days.from_now, status: 'initial' },
+    { name: 'Bruce Dickinson', nomis_id: 'AD223', due_date: 2.days.from_now, status: 'recategorisation' },
+    { name: 'Rob Halford', nomis_id: 'AE321', due_date: 2.days.from_now, status: 'initial' },
+  ]
+)
