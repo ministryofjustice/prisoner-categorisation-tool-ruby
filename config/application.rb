@@ -1,3 +1,10 @@
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require *Rails.groups(assets: %w(development test))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+end
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -19,5 +26,14 @@ module PrisonerCategorisationToolRuby
     config.generators do |g|
       g.test_framework :rspec
     end
+
+    config.assets.precompile += %w(
+      application.css
+      application-ie8.css
+      application-ie7.css
+      application-ie6.css
+      application.js
+    )
+
   end
 end
