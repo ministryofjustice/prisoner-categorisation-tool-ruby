@@ -17,3 +17,12 @@ Case.create!(
     { name: 'Rob Halford', nomis_id: 'AE321', due_date: 2.days.from_now, status: 'initial' },
   ]
 )
+
+User.create!(
+  [
+    { name: 'manager', role: 'offender_manager' },
+    { name: 'supervisor', role: 'supervisor' },
+    { name: 'security', role: 'security_department' },
+    { name: 'regional', role: 'regional_intelligence_unit' },
+  ]
+)
