@@ -1,6 +1,6 @@
-<h1>Editing Section</h1>
-
-<%= render 'form', section: @section %>
-
-<%= link_to 'Show', @section %> |
-<%= link_to 'Back', sections_path %>
+<h1 class="govuk-heading-xl"><%=@case.name%>: <%=@case.nomis_id%></h1>
+<%= render partial: "shared/#{@section_data.type}", locals: { 
+  purpose: @section_data.purpose, 
+  text: @section_data.text,
+  hint: @section_data.hint 
+  } %>

@@ -1,5 +1,7 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :set_case, only: [:new, :edit]
+  before_action :set_section_data, only: [:edit]
 
   # GET /sections
   # GET /sections.json
@@ -19,13 +21,14 @@ class SectionsController < ApplicationController
 
   # GET /sections/1/edit
   def edit
+
   end
 
   # POST /sections
   # POST /sections.json
   def create
     @section = Section.new(section_params)
-
+    puts params
     respond_to do |format|
       if @section.save
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
@@ -60,11 +63,20 @@ class SectionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+    
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section
       @section = Section.find(params[:id])
+    end
+
+    def set_case
+      @case = Case.find(params[:case_id])
+    end
+
+    def set_section_data
+      @section_data = @section.display_text
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
