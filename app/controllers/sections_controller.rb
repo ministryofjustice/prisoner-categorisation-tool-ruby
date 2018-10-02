@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  before_action :set_case, only: [:new, :edit]
+  before_action :set_case, only: [:new, :edit, :show, :security]
   before_action :set_section_data, only: [:edit]
 
   # GET /sections
@@ -63,7 +63,10 @@ class SectionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-    
+
+  def security
+    render "cases/security"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

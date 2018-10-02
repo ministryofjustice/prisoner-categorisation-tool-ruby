@@ -9,6 +9,10 @@ class Case < ApplicationRecord
 
   before_save :set_due_date
 
+  scope :pending, -> { where(status: "pending") }
+  scope :security, -> { where(status: "referred") }
+  default_scope { order(due_date: :desc) }
+
   private
 
   def set_due_date
