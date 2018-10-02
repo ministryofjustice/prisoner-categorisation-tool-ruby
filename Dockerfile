@@ -13,4 +13,5 @@ RUN bundle config build.nokogiri --use-system-libraries
 RUN gem install bundler
 RUN bundle install
 EXPOSE 3000
+RUN rails db:migrate
 CMD ["bundle", "exec", "rails", "s"]
