@@ -1,10 +1,14 @@
 <h1 class="govuk-heading-xl"><%=@case.name%>: <%=@case.nomis_id%></h1>
-<%= render partial: "shared/#{@section_data.type}", locals: { 
-  purpose: @section_data.purpose, 
-  text: @section_data.text,
-  hint: @section_data.hint 
-  } %>
+<% (1..@section_data.size).each do |n| 
+  element = @section_data.fetch(n.to_s)%>
+
+  <%= render partial: "shared/#{element["type"]}", locals: { 
+    purpose: element["purpose"], 
+    text: element["text"],
+    hint: element["hint"] 
+    } %>
+    <% end %>
 
 <a href="#" role="button" class="govuk-button">
-  Start now
+  Next section
 </a>
