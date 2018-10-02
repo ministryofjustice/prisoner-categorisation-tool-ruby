@@ -1,2 +1,2 @@
-<h1>Cases#show</h1>
-<p>Find me in app/views/cases/show.html.erb</p>
+<h1 class="govuk-heading-xl"><%=@case.name%>: <%=@case.nomis_id%></h1>
+<%= render partial: "shared/textarea", locals: { purpose: 'previous-convictions' } %>

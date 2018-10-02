@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_144057) do
+ActiveRecord::Schema.define(version: 2018_10_02_121537) do
 
   create_table "cases", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2018_10_01_144057) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "serialized_text"
+    t.integer "case_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["case_id"], name: "index_sections_on_case_id"
   end
 
   create_table "users", force: :cascade do |t|
