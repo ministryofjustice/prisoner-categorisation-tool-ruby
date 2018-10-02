@@ -1,3 +1,6 @@
 class Section < ApplicationRecord
-  belongs_to :case
+
+  def display_text
+    JSON.parse(self.serialized_text, object_class: OpenStruct)
+  end
 end
