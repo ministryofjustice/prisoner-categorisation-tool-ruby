@@ -12,7 +12,14 @@ class Case < ApplicationRecord
   scope :pending, -> { where(status: "pending") }
   scope :security, -> { where(status: "referred") }
   scope :closed, -> { where(status: "closed" ) }
+
   default_scope { order(due_date: :desc) }
+
+  STATES.each do |state|
+    define_method "#{state}?" do
+      self.status == state
+    end
+  end
 
   private
 
