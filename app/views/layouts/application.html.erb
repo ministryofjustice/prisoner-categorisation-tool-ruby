@@ -51,9 +51,7 @@
       </div>
       <div class="govuk-header__content">
 
-        <a href="#" class="govuk-header__link govuk-header__link--service-name">
-          Categorise a prisoner
-        </a>
+        <%= link_to 'Categorise a prisoner', root_url, class: 'govuk-header__link govuk-header__link--service-name' %>
 
         <button type="button" role="button" class="govuk-header__menu-button js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
         <nav>
@@ -80,8 +78,7 @@
     <div class="govuk-phase-banner">
       <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">alpha</strong>
         <span class="govuk-phase-banner__text">
-          This is a new service – your
-          <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+          This is a new service – your <%= link_to 'feedback', '#', class: 'govuk-link' %> will help us to improve it.
         </span>
       </p>
     </div>
