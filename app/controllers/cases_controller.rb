@@ -7,8 +7,10 @@ class CasesController < ApplicationController
     @cases = Case.order(due_date: :desc).closed
   end
 
-  def show
-    @case = Case.find(params[:id])
+  (1..6).each do |n|
+    define_method "section_#{n}" do
+      @case = Case.find(params[:id])
+    end
   end
 
   def edit

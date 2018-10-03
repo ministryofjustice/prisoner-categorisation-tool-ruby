@@ -44,6 +44,4 @@
   </div>
 </fieldset>
 
-<% unless @case.closed? %>
-  <p><%= link_to 'Next', '#', class: 'govuk-button' %></p>
-<% end %>
+<p><%= link_to 'Next', section_2_case_path(@case), class: 'govuk-button' %></p>
