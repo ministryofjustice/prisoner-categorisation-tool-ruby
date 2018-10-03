@@ -68,7 +68,11 @@
                 Previously categorised
               </a>
             </li>
+            <li class="govuk-header__navigation-item">
+              <%= link_to 'Sign out', destroy_user_session_path, class: 'govuk-header__link', method: :delete %>
+            </li>
           </ul>
+          <p>Signed in as <%= current_user.email %></p>
         </nav>
       </div>
     </div>
@@ -89,7 +93,12 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-     <%= yield %>
+
+        <% flash.each do |key, value| %>
+          <p class="<%= key %>"><%= value %></p>
+        <% end %>
+
+        <%= yield %>
      </div>
     </div>
   </main>

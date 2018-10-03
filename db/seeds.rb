@@ -20,9 +20,9 @@ Case.create!(
 
 User.create!(
   [
-    { name: 'manager', role: 'offender_manager' },
-    { name: 'supervisor', role: 'supervisor' },
-    { name: 'security', role: 'security_department' },
-    { name: 'regional', role: 'regional_intelligence_unit' },
+    { email: 'manager@example.com', role: 'offender_manager', password: 'testing123', password_confirmation: 'testing123' },
+    { email: 'supervisor@example.com', role: 'supervisor', password: 'testing123', password_confirmation: 'testing123' },
+    { email: 'security@example.com', role: 'security_department', password: 'testing123', password_confirmation: 'testing123' },
+    { email: 'regional@example.com', role: 'regional_intelligence_unit', password: 'testing123', password_confirmation: 'testing123' },
   ]
 )
