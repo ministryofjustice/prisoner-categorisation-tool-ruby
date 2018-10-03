@@ -1,4 +1,4 @@
-# Prisoner Categorisation Tool
+# Prisoner Categorisation Tool (prototype)
 
 To set up:
 
@@ -15,4 +15,8 @@ Sample user accounts:
 * security@example.com
 * regional@example.com
 
-All share the password "testing123"
+All accounts share the password "testing123"
+
+The database can be reset with `rails db:reseed`
+
+Development and test environments are setup to use SQLite. Production is Postgres.
