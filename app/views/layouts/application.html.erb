@@ -59,14 +59,10 @@
         <nav>
           <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
             <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
-              <a class="govuk-header__link" href="#1">
-                To categorise
-              </a>
+              <%= link_to 'To categorise', cases_path, class: 'govuk-header__link' %>
             </li>
             <li class="govuk-header__navigation-item">
-              <a class="govuk-header__link" href="#2">
-                Previously categorised
-              </a>
+              <%= link_to 'Previously categorised', closed_cases_path, class: 'govuk-header__link' %>
             </li>
             <li class="govuk-header__navigation-item">
               <%= link_to 'Sign out', destroy_user_session_path, class: 'govuk-header__link', method: :delete %>

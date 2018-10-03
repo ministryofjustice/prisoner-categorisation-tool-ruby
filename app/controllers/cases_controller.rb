@@ -3,6 +3,10 @@ class CasesController < ApplicationController
     @cases = Case.order(due_date: :desc)
   end
 
+  def closed
+    @cases = Case.order(due_date: :desc).closed
+  end
+
   def show
     @case = Case.find(params[:id])
   end

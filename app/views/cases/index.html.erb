@@ -1,17 +1,2 @@
-
-        <h1 class="govuk-heading-xl">Cases to be categorised</h1>
-          <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="col">Name</th>
-              <th class="govuk-table__header" scope="col">NOMIS ID</th>
-              <th class="govuk-table__header" scope="col">Status</th>
-              <th class="govuk-table__header" scope="col">Must be categorised by:</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-          <% @cases.each do |c| %>
-            <%= render partial: "shared/case", locals: {c: c} %>
-          <% end %>
-  </tbody>
-</table>
+<h1 class="govuk-heading-xl">Cases to be categorised</h1>
+<%= render partial: "shared/cases" %>
