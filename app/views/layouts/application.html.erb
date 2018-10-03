@@ -72,7 +72,9 @@
               <%= link_to 'Sign out', destroy_user_session_path, class: 'govuk-header__link', method: :delete %>
             </li>
           </ul>
-          <p>Signed in as <%= current_user.email %> (<%= current_user.role.humanize %>)</p>
+          <% if current_user.present? %>
+            <p>Signed in as <%= current_user.email %> (<%= current_user.role.humanize %>)</p>
+          <% end %>
         </nav>
       </div>
     </div>
