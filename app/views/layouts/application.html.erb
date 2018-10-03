@@ -67,7 +67,7 @@
             </li>
           </ul>
           <% if current_user.present? %>
-            <p>Signed in as <%= current_user.email %> (<%= current_user.role.humanize %>)</p>
+            <p>Signed in as <strong><%= current_user.email %></strong> (<%= current_user.role.humanize %>)</p>
           <% end %>
         </nav>
       </div>
