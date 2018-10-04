@@ -29,7 +29,7 @@ class CasesController < ApplicationController
     @case = Case.find(params[:id])
     set_answers
     @answers.serialized_answers = serialize_answers
-
+    @answers.save
     if @answers.save
       if params[:next_step].blank?
         redirect_to cases_path, notice: 'Completed'
@@ -61,14 +61,14 @@ private
     section_params.to_json
   end
 
-  def current_section
+  def current_section_id
     params[:next_step].to_i - 1
   end
 
   def set_answers
-    @answers = Answer.find_by(case_id: params[:id], section_id: current_section)
+    @answers = Answer.find_by(case_id: params[:id], section_id: current_section_id)
     if @answers.nil?
-      @answers = Answer.new(case_id: params[:id], section_id: current_section)
+      @answers = Answer.new(case_id: params[:id], section_id: current_section_id)
     end
   end
 
