@@ -23,6 +23,9 @@ class CasesController < ApplicationController
   end
 
   def update
+    set_answers
+    @answers.serialized_answers = serialize_answers
+    @answers.save
     redirect_to eval("section_#{params[:next_step]}_case_path")
   end
 
@@ -32,6 +35,28 @@ class CasesController < ApplicationController
       render 'cases/security'
     else
       redirect_to :root
+    end
+  end
+
+private
+
+  def section_params
+    answers = params.clone
+    answers.except(:id, :action, :controller, :utf8, :_method, :authenticity_token, :next_step, :commit)
+  end
+
+  def serialize_answers
+    section_params.to_json
+  end
+
+  def current_section
+    params[:next_step].to_i - 1
+  end
+
+  def set_answers
+    @answers = Answer.find_by(case_id: params[:id], section_id: current_section)
+    if @answers.nil?
+      @answers = Answer.new(case_id: params[:id], section_id: current_section)
     end
   end
 end
