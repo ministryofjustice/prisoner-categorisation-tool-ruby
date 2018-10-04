@@ -23,7 +23,11 @@ class CasesController < ApplicationController
   end
 
   def update
-    redirect_to eval("section_#{params[:next_step]}_case_path")
+    if params[:next_step].blank?
+      redirect_to cases_path, notice: 'Completed'
+    else
+      redirect_to next_section
+    end
   end
 
   def security
@@ -33,5 +37,11 @@ class CasesController < ApplicationController
     else
       redirect_to :root
     end
+  end
+
+  private
+
+  def next_section
+    eval("section_#{params[:next_step]}_case_path")
   end
 end
