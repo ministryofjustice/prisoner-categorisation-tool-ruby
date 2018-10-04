@@ -1,47 +1,51 @@
 <h1 class="govuk-heading-xl"><%=@case.name %></h1>
 
-<fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      Section 1 - Prisoner information
-    </h1>
-    <p><em>Note: Assume all values on this page to be present and pre-populated from an API call to NOMIS or the Analytical Platform</em></p>
-  </legend>
+<%= form_for @case do |f| %>
+  <%= hidden_field_tag :next_step, 2 %>
 
-  <div class="govuk-form-group">
-    <%= label_tag :nomis_id, 'NOMIS ID', class: 'govuk-label' %>
-    <%= text_field_tag :nomis_id, @case.nomis_id, class: 'govuk-input' %>
-  </div>
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Section 1 - Prisoner information
+      </h1>
+      <p><em>Note: Assume all values on this page to be present and pre-populated from an API call to NOMIS or the Analytical Platform</em></p>
+    </legend>
 
-  <div class="govuk-form-group">
-    <%= label_tag :date_of_birth, nil, class: 'govuk-label' %>
-    <%= date_field_tag :date_of_birth, nil, class: 'govuk-input' %>
-  </div>
+    <div class="govuk-form-group">
+      <%= label_tag :nomis_id, 'NOMIS ID', class: 'govuk-label' %>
+      <%= text_field_tag :nomis_id, @case.nomis_id, class: 'govuk-input' %>
+    </div>
 
-  <div class="govuk-form-group">
-    <%= label_tag :establishment, nil, class: 'govuk-label' %>
-    <%= text_field_tag :establishment, nil, class: 'govuk-input' %>
-  </div>
+    <div class="govuk-form-group">
+      <%= label_tag :date_of_birth, nil, class: 'govuk-label' %>
+      <%= date_field_tag :date_of_birth, nil, class: 'govuk-input' %>
+    </div>
 
-  <div class="govuk-form-group">
-    <%= label_tag :index_of_offence, nil, class: 'govuk-label' %>
-    <%= text_field_tag :index_of_offence, nil, class: 'govuk-input' %>
-  </div>
+    <div class="govuk-form-group">
+      <%= label_tag :establishment, nil, class: 'govuk-label' %>
+      <%= text_field_tag :establishment, nil, class: 'govuk-input' %>
+    </div>
 
-  <div class="govuk-form-group">
-    <%= label_tag :summary_of_previous_offences, nil, class: 'govuk-label' %>
-    <%= text_area_tag :summary_of_previous_offences, nil, class: 'govuk-textarea' %>
-  </div>
+    <div class="govuk-form-group">
+      <%= label_tag :index_of_offence, nil, class: 'govuk-label' %>
+      <%= text_field_tag :index_of_offence, nil, class: 'govuk-input' %>
+    </div>
 
-  <div class="govuk-form-group">
-    <%= label_tag :nationality, nil, class: 'govuk-label' %>
-    <%= text_field_tag :nationality, nil, class: 'govuk-input' %>
-  </div>
+    <div class="govuk-form-group">
+      <%= label_tag :summary_of_previous_offences, nil, class: 'govuk-label' %>
+      <%= text_area_tag :summary_of_previous_offences, nil, class: 'govuk-textarea' %>
+    </div>
 
-  <div class="govuk-form-group">
-    <%= label_tag :sentence_length, nil, class: 'govuk-label' %>
-    <%= number_field_tag :sentence_length, nil, class: 'govuk-input' %>
-  </div>
-</fieldset>
+    <div class="govuk-form-group">
+      <%= label_tag :nationality, nil, class: 'govuk-label' %>
+      <%= text_field_tag :nationality, nil, class: 'govuk-input' %>
+    </div>
 
-<p><%= link_to 'Next', section_2_case_path(@case), class: 'govuk-button' %></p>
+    <div class="govuk-form-group">
+      <%= label_tag :sentence_length, nil, class: 'govuk-label' %>
+      <%= number_field_tag :sentence_length, nil, class: 'govuk-input' %>
+    </div>
+  </fieldset>
+
+  <%= f.submit 'Next', class: 'govuk-button' %>
+<% end %>

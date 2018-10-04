@@ -16,6 +16,10 @@ class CasesController < ApplicationController
   def edit
   end
 
+  def update
+    redirect_to eval("section_#{params[:next_step]}_case_path")
+  end
+
   def security
     @cases = Case.security
     render :index, locals: {section: 99}
