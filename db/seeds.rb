@@ -26,3 +26,7 @@ User.create!(
     { email: 'regional@example.com', role: 'regional_intelligence_unit', password: 'testing123', password_confirmation: 'testing123' },
   ]
 )
+
+(1..6).each do |n|
+  Section.create(id: n)
+end
