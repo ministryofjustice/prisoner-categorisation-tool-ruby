@@ -22,7 +22,10 @@ class CasesController < ApplicationController
   def edit
   end
 
-  # EDIT /cases/1/security
+  def update
+    redirect_to eval("section_#{params[:next_step]}_case_path")
+  end
+
   def security
     if current_user.is_security_department?
       @case = Case.find(params[:case_id])
