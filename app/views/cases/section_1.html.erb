@@ -3,8 +3,7 @@
 <%= form_for @case do |f| %>
   <%= hidden_field_tag :next_step, 2 %>
 
-  <%= @case.errors.full_messages.inspect %>
-  <%= @answers.errors.full_messages.inspect %>
+  <% @case.errors.full_messages.inspect %>
 
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
