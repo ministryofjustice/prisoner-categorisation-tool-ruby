@@ -6,6 +6,10 @@
       Section 5 – Consideration of recommended category
     </h1>
   </legend>
+  <% @answers.each do |a| %>
+    <h3 class="govuk-heading-m">Date of birth</h3>
+    <span class="govuk-caption-m"><%= a.display_text["date_of_birth"] %></span>
+  <%end%>
 
 </fieldset>
 

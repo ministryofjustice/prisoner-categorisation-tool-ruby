@@ -1,4 +1,5 @@
 class Case < ApplicationRecord
+  has_many :answers
   STATES = %w( initial recategorisation advised referred closed pending )
 
   validates :name, presence: true

@@ -16,6 +16,9 @@ class CasesController < ApplicationController
   (1..6).each do |n|
     define_method "section_#{n}" do
       @case = Case.find(params[:id])
+      if n == 5
+        @answers = @case.answers
+      end
     end
   end
 
