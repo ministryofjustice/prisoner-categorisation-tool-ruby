@@ -1,14 +1,7 @@
 <h1 class="govuk-heading-xl"><%=@case.name%>: <%=@case.nomis_id%></h1>
-<p class="govuk-body">This offender has been referred to you because we believe they represent a higher than usual risk.
+  <p class="govuk-body">This offender has been referred to you because we believe they represent a higher than usual risk.
 The information you provide here will be shared with the offender and will provide part of the justification for their
 categorisation.</p>
-
-<%= render partial: "shared/textarea", locals: { 
-    purpose: "justify-answer", 
-    text: "Why do you think this is the right decision?",
-    hint: "Remember that the offender has a legal right to access this information"
-    } %>
-
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -41,7 +34,13 @@ categorisation.</p>
       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-risk-rating-conditional-2">
         <div class="govuk-form-group">
         </div>
+        </div>
       </div>
     </div>
   </fieldset>
+  <%= render partial: "shared/textarea", locals: { 
+    purpose: "justify-answer", 
+    text: "Why do you think this is the right decision?",
+    hint: "Remember that the offender has a legal right to access this information"
+    } %>
 </div>

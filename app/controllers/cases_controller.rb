@@ -16,8 +16,9 @@ class CasesController < ApplicationController
   def edit
   end
 
+  # EDIT /cases/1/security
   def security
-    @cases = Case.security
-    render :index, locals: {section: 99}
+    @case = Case.find(params[:case_id])
+    render 'cases/security'
   end
 end
