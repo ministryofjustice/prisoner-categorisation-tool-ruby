@@ -23,10 +23,19 @@ class CasesController < ApplicationController
   end
 
   def update
+    @case = Case.find(params[:id])
     set_answers
     @answers.serialized_answers = serialize_answers
-    @answers.save
-    redirect_to eval("section_#{params[:next_step]}_case_path")
+
+    if @answers.save
+      if params[:next_step].blank?
+        redirect_to cases_path, notice: 'Completed'
+      else
+        redirect_to next_section
+      end
+    else
+      render current_section
+    end
   end
 
   def security
@@ -57,6 +66,18 @@ private
     @answers = Answer.find_by(case_id: params[:id], section_id: current_section)
     if @answers.nil?
       @answers = Answer.new(case_id: params[:id], section_id: current_section)
+    end
+  end
+
+  def next_section
+    eval("section_#{params[:next_step]}_case_path")
+  end
+
+  def current_section
+    if params[:next_step].blank?
+      :section_6
+    else
+      "section_#{params[:next_step].to_i - 1}".to_sym
     end
   end
 end

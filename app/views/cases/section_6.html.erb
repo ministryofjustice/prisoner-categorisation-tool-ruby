@@ -1,12 +1,16 @@
 <h1 class="govuk-heading-xl"><%=@case.name %></h1>
 
-<fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      Section 6 – Countersigning
-    </h1>
-  </legend>
+<%= form_for @case do |f| %>
+  <%= hidden_field_tag :next_step, nil %>
 
-</fieldset>
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Section 6 – Countersigning
+      </h1>
+    </legend>
 
-<p><%= link_to 'Finished', cases_path, class: 'govuk-button' %></p>
+  </fieldset>
+
+  <%= f.submit 'Next', class: 'govuk-button' %>
+<% end %>

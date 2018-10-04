@@ -1,12 +1,16 @@
 <h1 class="govuk-heading-xl"><%=@case.name %></h1>
 
-<fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      Section 2 – Threat level
-    </h1>
-  </legend>
+<%= form_for @case do |f| %>
+  <%= hidden_field_tag :next_step, 3 %>
 
-</fieldset>
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Section 2 – Threat level
+      </h1>
+    </legend>
+  </fieldset>
 
-<p><%= link_to 'Next', section_3_case_path(@case), class: 'govuk-button' %></p>
+  <%= f.submit 'Next', class: 'govuk-button' %>
+<% end %>
+
