@@ -1,5 +1,7 @@
 <h1 class="govuk-heading-xl"><%=@case.name %></h1>
 
+<%= form_for @case do |f| %>
+  <%= hidden_field_tag :next_step, 6 %>
 <fieldset class="govuk-fieldset">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
     <h1 class="govuk-fieldset__heading">
@@ -11,6 +13,14 @@
     <span class="govuk-caption-m"><%= a.display_text["date_of_birth"] %></span>
   <%end%>
 
-</fieldset>
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Section 5 – Consideration of recommended category
+      </h1>
+    </legend>
 
-<p><%= link_to 'Next', section_6_case_path(@case), class: 'govuk-button' %></p>
+  </fieldset>
+
+  <%= f.submit 'Next', class: 'govuk-button' %>
+<% end %>
