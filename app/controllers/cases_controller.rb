@@ -31,7 +31,12 @@ class CasesController < ApplicationController
     @answers.serialized_answers = serialize_answers
     @answers.save
     if @answers.save
-      if params[:next_step].blank?
+      if [6, 10].include? params[:next_step].to_i
+        if params[:next_step] == 10
+          @case.change_status_to("advised")
+        elsif params[:next_step] == 6
+          @case.change_status_to("pending")
+        end
         redirect_to cases_path, notice: 'Completed'
       else
         redirect_to next_section

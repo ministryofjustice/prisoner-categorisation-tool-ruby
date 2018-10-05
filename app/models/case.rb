@@ -22,6 +22,11 @@ class Case < ApplicationRecord
     end
   end
 
+  def change_status_to(status)
+    self.status = status
+    self.save!
+  end
+
   private
 
   def set_due_date

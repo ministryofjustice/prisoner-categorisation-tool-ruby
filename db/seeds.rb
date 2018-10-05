@@ -27,6 +27,6 @@ User.create!(
   ]
 )
 
-(1..6).each do |n|
+(1..10).each do |n|
   Section.create(id: n)
 end
