@@ -31,11 +31,13 @@ class CasesController < ApplicationController
     @answers.serialized_answers = serialize_answers
     @answers.save
     if @answers.save
-      if [6, 10].include? params[:next_step].to_i
+      if [6, 10, 99].include? params[:next_step].to_i
         if params[:next_step] == 10 # ie you're on security section
           @case.change_status_to("advised")
         elsif params[:next_step] == 6 # you're on the manager review screen
           @case.change_status_to("pending")
+        elsif params[:next_step] == 99 # you're on the supervisor page
+          @case.change_status_to("closed")
         end
         redirect_to cases_path, notice: 'Completed'
       else
