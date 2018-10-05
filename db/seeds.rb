@@ -27,6 +27,90 @@ User.create!(
   ]
 )
 
-(1..100).each do |n|
+(1..7).each do |n|
   Section.create(id: n)
+end
+
+Case.all.each do |c|
+
+  # Section 1
+  answer_json = {
+    establishment: 'BMI',
+    index_of_offence: 1,
+    summary_of_previous_offences: 'Stole a loaf of bread',
+    nationality: 'British',
+    sentence_length: 10
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 1,
+    serialized_answers: answer_json.to_s
+  )
+
+  # Section 2
+  answer_json = {
+
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 2,
+    serialized_answers: answer_json.to_s
+  )
+
+  # Section 3
+  answer_json = {
+
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 3,
+    serialized_answers: answer_json.to_s
+  )
+
+  # Section 4
+  answer_json = {
+
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 4,
+    serialized_answers: answer_json.to_s
+  )
+
+  # Section 5
+  answer_json = {
+
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 5,
+    serialized_answers: answer_json.to_s
+  )
+
+  # Security section
+  answer_json = {
+
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 6,
+    serialized_answers: answer_json.to_s
+  )
+
+  # Supervisor
+  answer_json = {
+
+  }
+
+  Answer.create(
+    case_id: c.id,
+    section_id: 7,
+    serialized_answers: answer_json.to_s
+  )
 end
