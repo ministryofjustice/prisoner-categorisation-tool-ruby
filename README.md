@@ -20,3 +20,8 @@ All accounts share the password "testing123"
 The database can be reset with `rails db:reseed`
 
 Development and test environments are setup to use SQLite. Production is Postgres.
+
+## TODO
+
+* Refactor `cases_controller` multi-step form handling into service object
+
