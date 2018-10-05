@@ -10,8 +10,12 @@
 <h3 class="govuk-heading-m">NOMIS id: <%= a.display_text["nomis_id"] %></h3>
 <h3 class="govuk-heading-m">Summary of previous offences:</h3>
 <p class="govuk-body"><%= a.display_text["summary_of_previous_offences"] %></p>
+<h3 class="govuk-heading-m">Nationality: <%= a.display_text["nationality"] rescue '' %></h3>
+<h3 class="govuk-heading-m">Sentence length: <%= a.display_text["sentence_length"] rescue '' %></h3>
+
 
 <% a = @answers[8] %>
+<h3 class="govuk-heading-l">Security view</h3>
 
 <% if current_user.is_offender_manager? %>
   <%= render partial: 'shared/categorise' %>
