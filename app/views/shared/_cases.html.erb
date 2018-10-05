@@ -10,7 +10,14 @@
 </thead>
   <tbody class="govuk-table__body">
     <% @cases.each do |c| %>
-      <%= render partial: "shared/case", locals: {c: c} %>
+    <% if @role == "security_department" %>
+      <% path = case_security_path(c) %>
+    <% elsif @role == "supervisor"%>
+      <% path = case_supervisor_path(c) %>
+    <% else %>
+      <% path = section_1_case_path(c) %>
+    <% end %>
+      <%= render partial: "shared/case", locals: {c: c, path: path} %>
     <% end %>
   </tbody>
 </table>
