@@ -1,20 +1,13 @@
-<h1 class="govuk-heading-xl"><%=@case.name %></h1>
-
-<%= form_for @case do |f| %>
-  <%= hidden_field_tag :next_step, 6 %>
 <fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      Section 5 – Consideration of recommended category
-    </h1>
-  </legend>
-  <% a = @answers[0] %>
-  <h3 class="govuk-heading-m">Date of birth: <%= a.display_text["date_of_birth"].to_date.strftime("%d/%m/%Y") rescue '' %></h3>
-  <h3 class="govuk-heading-m">NOMIS id: <%= a.display_text["nomis_id"] %></h3>
-  <h3 class="govuk-heading-m">Summary of previous offences:</h3>
-  <p class="govuk-body"><%= a.display_text["summary_of_previous_offences"] %></p>
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+  <h1 class="govuk-fieldset__heading">
+    Consideration of recommended category
+  </h1>
+</legend>
+<%= render partial: 'shared/review' %>
 
+  <%# render the categorisation option at this point if manager %>
 
-
-  <%= f.submit 'Next', class: 'govuk-button' %>
+<% if current_user.is_offender_manager? %>
+  <%= render partial: 'shared/categorise' %>
 <% end %>

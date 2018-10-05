@@ -1,0 +1,7 @@
+<% a = @answers[0] %>
+<h3 class="govuk-heading-m">Date of birth: <%= a.display_text["date_of_birth"].to_date.strftime("%d/%m/%Y") rescue '' %></h3>
+<h3 class="govuk-heading-m">NOMIS id: <%= a.display_text["nomis_id"] %></h3>
+<h3 class="govuk-heading-m">Summary of previous offences:</h3>
+<p class="govuk-body"><%= a.display_text["summary_of_previous_offences"] %></p>
+
+<% a = @answers[8] %>
