@@ -32,11 +32,11 @@ class CasesController < ApplicationController
     @answers.save
     if @answers.save
       if params[:next_step].to_i > 5
-        if params[:next_step] == 7 # ie you're on security section
+        if params[:next_step].to_i == 7 # ie you're on security section
           @case.change_status_to("advised")
-        elsif params[:next_step] == 6 # you're on the manager review screen
+        elsif params[:next_step].to_i == 6 # you're on the manager review screen
           @case.change_status_to("pending")
-        elsif params[:next_step] == 8 # you're on the supervisor page
+        elsif params[:next_step].to_i == 8 # you're on the supervisor page
           @case.change_status_to("closed")
         end
         redirect_to cases_path, notice: 'Completed'
