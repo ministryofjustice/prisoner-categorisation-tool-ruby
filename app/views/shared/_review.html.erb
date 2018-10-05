@@ -14,8 +14,11 @@
 <h3 class="govuk-heading-m">Sentence length: <%= a.display_text["sentence_length"] rescue '' %></h3>
 
 
-<% a = @answers[8] %>
+<% a = @answers[5] %>
 <h3 class="govuk-heading-l">Security view</h3>
+<% if a.display_text["risk-rating"] == "yes"%>
+  <p class="govuk-body">We believe that a higher categorisation is justified. <%= a.display_text["justify-answer"] %></p>
+<% end %>
 
 <% if current_user.is_offender_manager? %>
   <%= render partial: 'shared/categorise' %>
