@@ -32,9 +32,9 @@ class CasesController < ApplicationController
     @answers.save
     if @answers.save
       if [6, 10].include? params[:next_step].to_i
-        if params[:next_step] == 10
+        if params[:next_step] == 10 # ie you're on security section
           @case.change_status_to("advised")
-        elsif params[:next_step] == 6
+        elsif params[:next_step] == 6 # you're on the manager review screen
           @case.change_status_to("pending")
         end
         redirect_to cases_path, notice: 'Completed'

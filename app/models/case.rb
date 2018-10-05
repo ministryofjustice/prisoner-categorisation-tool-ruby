@@ -13,6 +13,7 @@ class Case < ApplicationRecord
   scope :pending, -> { where(status: "pending") }
   scope :security, -> { where(status: "referred") }
   scope :closed, -> { where(status: "closed" ) }
+  scope :manager, -> { where(status: ["initial", "recategorisation", "advised"] ) }
 
   default_scope { order(due_date: :desc) }
 
