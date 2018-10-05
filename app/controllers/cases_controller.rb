@@ -58,6 +58,7 @@ class CasesController < ApplicationController
   def supervisor
     if current_user.is_supervisor?
       @case = Case.find(params[:case_id])
+      @answers = @case.answers
       render 'cases/supervisor'
     else
       redirect_to :root
