@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :cases do
     get 'closed', on: :collection
     get '/security', to: 'cases#security'
+    get '/supervisor', to: 'cases#supervisor'
 
     (1..6).each do |n|
       get "section_#{n}", on: :member
