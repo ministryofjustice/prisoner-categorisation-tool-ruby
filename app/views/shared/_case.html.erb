@@ -3,5 +3,5 @@
   <td class="govuk-table__cell "><%= c.nomis_id %></td>
   <td class="govuk-table__cell "><%= c.status.humanize %></td>
   <td class="govuk-table__cell "><%= c.due_date %></td>
-  <td class="govuk-table__cell "><%= link_to 'View', current_user.is_security_department? ? case_security_path(c) : section_1_case_path(c) %></td>
+  <td class="govuk-table__cell "><%= link_to 'View', path %></td>
 </tr>
