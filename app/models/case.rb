@@ -31,6 +31,6 @@ class Case < ApplicationRecord
   private
 
   def set_due_date
-    self.due_date = 10.days.from_now
+    self.due_date ||= 10.days.from_now
   end
 end
